@@ -16,17 +16,17 @@
 	<md-sidenav align="end" mode="side" #sidenav>
 		<md-tab-group>
 			<md-tab>
-				<template md-tab-label>Details</template>
-				<template md-tab-content>
+				<ng-template md-tab-label>Details</ng-template>
+				<ng-template md-tab-content>
 					<p>Name: {{currentPhoto.name}}</p>
 					<p>Human: {{currentPhoto.human}}</p>
 					<p>Age: {{currentPhoto.age}}</p>
 					<button md-raised-button (click)="sidenav.close()" color="accent">CLOSE</button>
-				</template>
+				</ng-template>
 			</md-tab>
 			<md-tab>
-				<template md-tab-label>Feed</template>
-				<template md-tab-content></template>
+				<ng-template md-tab-label>Feed</ng-template>
+				<ng-template md-tab-content></ng-template>
 			</md-tab>
 		</md-tab-group>
 	</md-sidenav>
