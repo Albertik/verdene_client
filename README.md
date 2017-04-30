@@ -1,4 +1,6 @@
-# Client2
+# Verdene draught club website
+
+Šaškių klubo "Verdene" internetinis puslapis, https://albertik.github.io/verdene_client/#/main
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
