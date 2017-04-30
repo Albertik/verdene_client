@@ -1,0 +1,19 @@
+<!--TODO transclude content into my my-side-nav-layout component-->
+<my-side-nav-layout>
+
+  <md-grid-list cols="4" rowHeight="200px">
+    <p>{{title}}</p>
+    <md-grid-tile *ngFor="let photo of photos" [rowspan]="photo.rows">
+      <img src="assets/images/{{photo.name}}.jpg" (click)="openPhotoInModal('assets/images/' + photo.name + '.jpg')"
+           alt="photo of {{photo.name}}">
+      <md-grid-tile-footer>
+        <h3 md-line>{{photo.name}}</h3>
+        <span md-line>Human: {{photo.human}}</span>
+        <button md-icon-button (click)="showPhoto(photo)">
+          <md-icon>info</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+
+</my-side-nav-layout>

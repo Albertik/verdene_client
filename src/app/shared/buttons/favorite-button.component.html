@@ -1,0 +1,9 @@
+<button class="btn btn-sm"
+	md-button
+	[ngClass]="{ 'disabled' : isSubmitting,
+              'btn-outline-primary': !article.favorited,
+              'btn-primary': article.favorited }"
+	(click)="toggleFavorite()">
+	<md-icon color="warn">favorite</md-icon>
+	<ng-content></ng-content>
+</button>

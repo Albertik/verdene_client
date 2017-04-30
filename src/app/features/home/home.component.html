@@ -1,0 +1,66 @@
+<my-side-nav-layout>
+	<div class="home-page">
+
+		<div class="banner" *showAuthed="false">
+			<div class="container">
+				<h1 class="logo-font">Naujienos</h1>
+				<p>Čia publikuojamos <i>Verdenes klubo</i> naujienos.</p>
+			</div>
+		</div>
+
+		<md-card class="container__page">
+			<div class="flex-container"
+				fxLayout="row"
+				fxLayout.xs="column"
+				fxLayoutAlign="center top"
+				fxLayoutAlign.xs="start"
+			>
+				<div class="flex-item"
+					fxFlex="70%"
+					fxFlex.xs="40%"
+				>
+					<md-card>
+
+						<md-tab-group [selectedIndex]="selectedIndex" (selectChange)="setListTo(null, {}, $event)">
+							<md-tab label="Your Feed">
+								<article-list [limit]="10" [config]="listConfig"></article-list>
+							</md-tab>
+							<md-tab label="Global Feed">
+								<article-list [limit]="10" [config]="listConfig"></article-list>
+							</md-tab>
+
+						</md-tab-group>
+
+					</md-card>
+				</div>
+				<div class="flex-item"
+					fxFlex fxFlexOffset="1%"
+				>
+					<md-card>
+						<div class="sidebar">
+							<p>Popular Tags</p>
+
+							<div class="tag-list">
+								<a href="#"
+									*ngFor="let tag of tags"
+									(click)="setListTo('all', {tag: tag})"
+									class="tag-default tag-pill">
+									{{ tag }}
+								</a>
+							</div>
+
+							<div [hidden]="tagsLoaded">
+								Loading tags...
+							</div>
+
+							<div [hidden]="!tagsLoaded || tags.length">
+								No tags are here... yet.
+							</div>
+						</div>
+					</md-card>
+				</div>
+			</div>
+
+		</md-card>
+	</div>
+</my-side-nav-layout>

@@ -1,0 +1,23 @@
+<!--//TODO: refactor to classes-->
+<my-side-nav-layout>
+  <div class="about">
+    <h1>Reitingai</h1>
+
+    <div *ngFor="let rating of ratings">
+      <h2>{{rating.category}}</h2>
+      <ul style="text-align: left">
+        <li *ngFor="let place of rating.places">
+          {{place}}
+        </li>
+      </ul>
+    </div>
+
+    <h2>{{matchResults.heading}}</h2>
+
+    <ul class style="text-align: left">
+      <li *ngFor="let versus of matchResults.versus">
+        {{versus}}
+      </li>
+    </ul>
+  </div>
+</my-side-nav-layout>

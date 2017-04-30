@@ -1,0 +1,30 @@
+<my-side-nav-layout>
+  <div>
+    <md-card>
+      <md-card>
+        <md-toolbar color="primary">Todos</md-toolbar>
+        <md-card-content>
+          <todo-input
+            (addTodo)="addTodo($event)">
+          </todo-input>
+          <button md-button class="md-primary"
+                  (click)="undo()">
+            Undo
+          </button>
+          <button md-button class="md-primary"
+                  (click)="redo()">
+            Redo
+          </button>
+          <filter-select
+            (filterSelect)="updateFilter($event)">
+          </filter-select>
+          <todo-list
+            [todosModel]="todosModel$ | async"
+            (removeTodo)="removeTodo($event)"
+            (toggleTodo)="toggleTodo($event)">
+          </todo-list>
+        </md-card-content>
+      </md-card>
+    </md-card>
+  </div>
+</my-side-nav-layout>

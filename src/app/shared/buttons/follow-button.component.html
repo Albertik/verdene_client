@@ -1,0 +1,11 @@
+<button
+	md-button
+	class="btn btn-sm action-btn"
+	[ngClass]="{ 'disabled': isSubmitting,
+               'btn-outline-secondary': !profile.following,
+               'btn-secondary': profile.following }"
+	(click)="toggleFollowing()">
+	<md-icon>add</md-icon>
+	&nbsp;
+	{{ profile.following ? 'Unfollow' : 'Follow' }} {{ profile.username }}
+</button>

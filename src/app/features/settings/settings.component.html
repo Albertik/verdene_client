@@ -1,0 +1,89 @@
+<my-side-nav-layout>
+	<div class="settings-page">
+		<md-card class="container page">
+			<md-card class="flex-container"
+				fxLayout="row"
+				fxLayout.xs="column"
+				fxLayoutAlign="center center"
+				fxLayoutAlign.xs="start">
+				<div class="flex-item" fxFlex="80%">
+
+					<h1 class="text-xs-center">Your Settings</h1>
+
+					<list-errors [errors]="errors"></list-errors>
+
+					<form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+						<fieldset [disabled]="isSubmitting">
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control"
+										mdInput
+										type="text"
+										placeholder="URL of profile picture"
+										formControlName="image"/>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control form-control-lg"
+										mdInput
+										type="text"
+										placeholder="Username"
+										formControlName="username"/>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+								<textarea class="form-control form-control-lg"
+									mdInput
+									rows="8"
+									placeholder="Short bio about you"
+									formControlName="bio">
+			                    </textarea>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control form-control-lg"
+										mdInput
+										type="email"
+										placeholder="Email"
+										formControlName="email"/>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control form-control-lg"
+										mdInput
+										type="password"
+										placeholder="New Password"
+										formControlName="password"/>
+								</md-input-container>
+							</fieldset>
+
+							<button md-raised-button color="primary" class="btn btn-lg btn-primary pull-xs-right"
+								type="submit">
+								Update Settings
+							</button>
+
+						</fieldset>
+					</form>
+
+					<!-- Line break for logout button -->
+					<hr/>
+
+					<button md-raised-button color="primary" class="btn btn-outline-danger"
+						(click)="logout()">
+						Or click here to logout.
+					</button>
+
+				</div>
+			</md-card>
+		</md-card>
+	</div>
+</my-side-nav-layout>

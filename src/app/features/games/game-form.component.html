@@ -1,0 +1,44 @@
+<h3>Add new game</h3>
+<form (ngSubmit)="add(form.value, form.valid)" [formGroup]="form">
+	<div formGroupName="playersNames">
+		<div>
+			<label for="firstPlayer">First player:</label>
+			<md-input-container>
+				<input id="firstPlayer"
+					formControlName="firstPlayer"
+					type="text"
+					class="demo-full-width"
+					mdInput
+					placeholder="Enter first player...">
+			</md-input-container>
+			<small
+				[hidden]="form.controls.playersNames.controls.firstPlayer.valid || (form.controls.playersNames.controls.firstPlayer.pristine && !submitted)">
+				Name is required (minimum 5 characters).
+			</small>
+		</div>
+		<div>
+			<label for="secondPlayer">Second player:</label>
+			<md-input-container>
+				<input id="secondPlayer"
+					formControlName="secondPlayer"
+					type="text"
+					class="demo-full-width"
+					placeholder="Enter second player..."
+					mdInput>
+			</md-input-container>
+			<small
+				[hidden]="form.controls.playersNames.controls.secondPlayer.valid || (form.controls.playersNames.controls.secondPlayer.pristine && !submitted)">
+				Name is required (minimum 5 characters).
+			</small>
+		</div>
+	</div>
+
+	<md-input-container>
+		<textarea mdInput placeholder="Textarea with autosize" formControlName="pdnNotation"></textarea>
+	</md-input-container>
+
+	<button md-button class="md-primary"
+		type="submit"
+		[disabled]="!form.valid">Submit
+	</button>
+</form>

@@ -1,0 +1,7 @@
+<div  [class.dark-theme]="isDarkTheme" class="site">
+  <layout-header (onChangeTheme)="onChangeTheme($event)"></layout-header>
+  <div class="site__content">
+    <router-outlet></router-outlet>
+  </div>
+  <layout-footer></layout-footer>
+</div>

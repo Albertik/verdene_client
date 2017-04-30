@@ -1,0 +1,82 @@
+<my-side-nav-layout>
+	<div class="editor-page">
+		<md-card class="container page">
+			<md-card class="flex-container"
+
+
+			>
+				<div class="flex-item" fxFlex>
+
+					<list-errors [errors]="errors"></list-errors>
+
+					<form [formGroup]="articleForm">
+						<fieldset [disabled]="isSubmitting">
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control form-control-lg"
+										md-input
+										formControlName="title"
+										type="text"
+										placeholder="Article Title"/>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control"
+										md-input
+										formControlName="description"
+										type="text"
+										placeholder="What's this article about?"/>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+								<textarea class="form-control"
+									md-input
+									formControlName="body"
+									rows="8"
+									placeholder="Write your article (in markdown)">
+							</textarea>
+								</md-input-container>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<md-input-container>
+									<input class="form-control"
+										md-input
+										type="text"
+										placeholder="Enter tags"
+										[formControl]="tagField"
+										(keyup.enter)="addTag()"/>
+								</md-input-container>
+
+								<div class="tag-list">
+				                <span *ngFor="let tag of article.tagList"
+					                class="tag-default tag-pill">
+					                <md-icon (click)="removeTag(tag)">cancel</md-icon>
+				                  {{ tag }}
+				                </span>
+								</div>
+							</fieldset>
+
+							<div class="flex-container"
+								fxLayout="row"
+								fxLayoutAlign="center center"
+								fxLayoutAlign.xs="end"
+							>
+								<button md-raised-button color="primary" type="button" (click)="submitForm()">
+									Publish Article
+								</button>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+			</md-card>
+		</md-card>
+	</div>
+</my-side-nav-layout>

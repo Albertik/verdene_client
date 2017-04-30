@@ -1,0 +1,134 @@
+<my-side-nav-layout>
+	<div class="article-page">
+
+		<div class="banner">
+			<div class="container">
+				<h1>{{ article.title }}</h1>
+
+				<article-meta [article]="article">
+
+	            <span [hidden]="!canModify">
+					<a md-button class="btn btn-sm btn-outline-secondary"
+						[routerLink]="['/editor', article.slug]">
+						<md-icon>edit</md-icon> Edit Article
+					</a>
+
+					<button md-button class="btn btn-sm btn-outline-danger"
+						[ngClass]="{disabled: isDeleting}"
+						(click)="deleteArticle()">
+						<md-icon>delete</md-icon> Delete Article
+					</button>
+	            </span>
+
+					<span [hidden]="canModify">
+					<follow-button
+						[profile]="article.author"
+						(onToggle)="onToggleFollowing($event)">
+					</follow-button>
+
+					<favorite-button
+						[article]="article"
+						(onToggle)="onToggleFavorite($event)">
+						{{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
+					</favorite-button>
+	            </span>
+
+				</article-meta>
+			</div>
+		</div>
+
+		<md-card class="container page">
+
+			<md-card class="row article-content">
+				<div class="col-md-12">
+
+					<div [innerHTML]="article.body | markdown"></div>
+
+					<ul class="tag-list">
+						<li *ngFor="let tag of article.tagList"
+							class="tag-default tag-pill tag-outline">
+							{{ tag }}
+						</li>
+					</ul>
+
+				</div>
+			</md-card>
+
+			<hr/>
+
+			<md-card class="article-actions">
+				<article-meta [article]="article">
+
+				<span [hidden]="!canModify">
+					<a md-button class="btn btn-sm btn-outline-secondary"
+						[routerLink]="['/editor', article.slug]">
+						<md-icon>edit</md-icon> Edit Article
+					</a>
+
+					<button md-button class="btn btn-sm btn-outline-danger"
+						[ngClass]="{disabled: isDeleting}"
+						(click)="deleteArticle()">
+						<md-icon>delete</md-icon> Delete Article
+					</button>
+				</span>
+
+					<span [hidden]="canModify">
+					<follow-button
+						[profile]="article.author"
+						(onToggle)="onToggleFollowing($event)">
+					</follow-button>
+
+					<favorite-button
+						[article]="article"
+						(onToggle)="onToggleFavorite($event)">
+						{{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
+					</favorite-button>
+				</span>
+
+				</article-meta>
+			</md-card>
+
+			<md-card class="row">
+				<md-card class="col-xs-12 col-md-8 offset-md-2">
+
+					<div *showAuthed="true">
+						<list-errors [errors]="commentFormErrors"></list-errors>
+						<form class="card comment-form" (ngSubmit)="addComment()">
+							<fieldset [disabled]="isSubmitting">
+								<div class="card-block">
+									<md-input-container>
+									<textarea class="form-control"
+										md-input
+										placeholder="Write a comment..."
+										rows="3"
+										[formControl]="commentControl"
+									></textarea>
+									</md-input-container>
+								</div>
+								<div class="card-footer">
+									<img *ngIf="currentUser.image" [src]="currentUser.image" class="comment-author-img"/>
+									<button md-button class="btn btn-sm btn-primary" type="submit">
+										Post Comment
+									</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+
+					<div *showAuthed="false">
+						<a [routerLink]="['/login']">Sign in</a> or <a [routerLink]="['/register']">sign up</a> to add
+						comments on this article.
+					</div>
+
+					<article-comment
+						*ngFor="let comment of comments"
+						[comment]="comment"
+						(deleteComment)="onDeleteComment(comment)">
+					</article-comment>
+
+				</md-card>
+			</md-card>
+
+		</md-card>
+	</div>
+</my-side-nav-layout>

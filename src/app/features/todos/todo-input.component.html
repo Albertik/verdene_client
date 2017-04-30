@@ -1,0 +1,11 @@
+<div>
+  <label for="name">Todo Description:</label>
+  <md-input-container>
+    <input mdInput id="name" #todo type="text" class="demo-full-width" placeholder="Enter Todo...">
+  </md-input-container>
+</div>
+<button
+  md-button class="md-primary"
+  (click)="add(todo)">
+  Add Todo
+</button>

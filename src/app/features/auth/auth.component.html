@@ -1,0 +1,53 @@
+<div class="auth-page">
+	<md-card class="auth-page__container">
+		<md-card>
+			<div class="col-md-6 offset-md-3 col-xs-12">
+				<h1 class="text-xs-center">{{ title }}</h1>
+				<p class="text-xs-center">
+					<a [routerLink]="['/login']" *ngIf="authType == 'register'">Have an account?</a>
+					<a [routerLink]="['/register']" *ngIf="authType == 'login'">Need an account?</a>
+				</p>
+				<list-errors [errors]="errors"></list-errors>
+				<form [formGroup]="authForm" (ngSubmit)="submitForm()">
+					<fieldset [disabled]="isSubmitting">
+						<fieldset class="form-group">
+							<md-input-container *ngIf="authType == 'register'">
+								<input
+									mdInput
+									formControlName="username"
+									placeholder="Username"
+									class="form-control form-control-lg"
+									type="text"
+								/>
+
+							</md-input-container>
+						</fieldset>
+						<fieldset class="form-group">
+							<md-input-container>
+								<input
+									mdInput
+									formControlName="email"
+									placeholder="Email"
+									class="form-control form-control-lg"
+									type="text"/>
+							</md-input-container>
+						</fieldset>
+						<fieldset class="form-group">
+							<md-input-container>
+								<input
+									mdInput
+									formControlName="password"
+									placeholder="Password"
+									class="form-control form-control-lg"
+									type="password"/>
+							</md-input-container>
+						</fieldset>
+						<button class="btn btn-lg btn-primary pull-xs-right" type="submit">
+							{{ title }}
+						</button>
+					</fieldset>
+				</form>
+			</div>
+		</md-card>
+	</md-card>
+</div>

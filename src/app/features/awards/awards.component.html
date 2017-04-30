@@ -1,0 +1,11 @@
+<!--TODO: group by years and make search by player-->
+<my-side-nav-layout>
+  <div>
+    <div style="padding: 20px 20px" *ngFor="let award of awards">
+      <h3>{{award.year}}</h3>
+      <div *ngFor="let event of award.events">
+        {{event}}
+      </div>
+    </div>
+  </div>
+</my-side-nav-layout>

@@ -1,0 +1,36 @@
+<md-sidenav-container>
+	<md-sidenav #leftSidenav (open)="mybutton.focus()" mode="side" layout-padding>
+		<span style="float: right"><button class="md-primary" #mybutton (click)="closeLeftSidenav()">X</button></span>
+		<h2>Menu.</h2>
+		<br>
+
+		<md-list>
+            <md-list-item *ngFor="let link of links">
+				<button md-button class="md-primary"
+					[routerLink]="link.url"
+					routerLinkActive="active"
+				>{{link.text}}</button>
+            </md-list-item>
+		</md-list>
+	</md-sidenav>
+	<md-sidenav align="end" mode="side" #sidenav>
+		<md-tab-group>
+			<md-tab>
+				<template md-tab-label>Details</template>
+				<template md-tab-content>
+					<p>Name: {{currentPhoto.name}}</p>
+					<p>Human: {{currentPhoto.human}}</p>
+					<p>Age: {{currentPhoto.age}}</p>
+					<button md-raised-button (click)="sidenav.close()" color="accent">CLOSE</button>
+				</template>
+			</md-tab>
+			<md-tab>
+				<template md-tab-label>Feed</template>
+				<template md-tab-content></template>
+			</md-tab>
+		</md-tab-group>
+	</md-sidenav>
+
+	<ng-content></ng-content>
+
+</md-sidenav-container>

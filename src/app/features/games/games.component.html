@@ -1,0 +1,15 @@
+<my-side-nav-layout>
+	<md-card>
+		<h1>Games</h1>
+		<md-card>
+			<game-form
+				(addGame)="addGame($event)"
+			></game-form>
+		</md-card>
+		<md-card>
+			<game-list
+				[gamesModel]="gamesModel$ | async"
+			></game-list>
+		</md-card>
+	</md-card>
+</my-side-nav-layout>
