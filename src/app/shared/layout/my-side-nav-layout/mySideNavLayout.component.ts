@@ -8,19 +8,20 @@ import {SidenavService} from "../../services/sidenav.service";
 })
 export class MySidenavLayoutComponent implements OnInit, AfterViewInit {
     public currentPhoto: Object = {};
+    public opened = false;
     public links: Object[] = [
-        {
-            url: '/todos',
-            text: 'Todo\'s'
-        },
+        // {
+        //     url: '/todos',
+        //     text: 'Todo\'s'
+        // },
         {
             url: '/game',
             text: 'Game'
         },
-        {
-            url: '/games',
-            text: 'Games'
-        },
+        // {
+        //     url: '/games',
+        //     text: 'Games'
+        // },
         {
             url: '/play',
             text: 'Play'
@@ -55,6 +56,7 @@ export class MySidenavLayoutComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit(): void {
         this.sidenavService.opened$.subscribe((opened) => {
+            this.opened = !opened;
             if (opened) {
                 this.leftSidenav.open();
             } else {

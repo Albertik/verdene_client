@@ -1,91 +1,84 @@
 <div>
-	<md-toolbar color="primary" class="toolbar">
-		<button md-icon-button (click)="toggleLeftSidenav()">
+	<md-toolbar color="primary"
+		class="toolbar">
+		<button md-icon-button
+			(click)="toggleLeftSidenav()">
 			<md-icon>menu</md-icon>
 		</button>
-		<span class="toolbar__logo" [routerLink]="['/']">
-			<img src="../../../../assets/images/logo 40x40.png" alt="Verdenes logotipas"/>
+		<span class="toolbar__logo"
+			[routerLink]="['/']">
+			<img src="../../../../assets/images/logo40x40.png"
+				alt="Verdenes logotipas"/>
 			<h1>Verdene</h1>
 		</span>
-		<button md-icon-button [md-menu-trigger-for]="menu">
+		<button md-icon-button
+			[md-menu-trigger-for]="menu">
 			<md-icon>more_vert</md-icon>
 		</button>
 	</md-toolbar>
-	<md-menu x-position="before" #menu="mdMenu">
+	<md-menu x-position="before" style="position: relative"
+		#menu="mdMenu">
 		<!-- Show this for logged out users -->
-		<ul *showAuthed="false"
+		<div *showAuthed="false"
 			class="nav navbar-nav pull-xs-right">
 
-			<li class="nav-item">
-				<a class="nav-link"
-					routerLink="/">
-					{{ 'HOME.MENU_HOME' }}
-				</a>
-			</li>
+			<button md-menu-item
+				class="nav-link"
+				routerLink="/">
+				Home
+			</button>
 
-			<li class="nav-item">
-				<a class="nav-link"
-					routerLink="/login"
-					routerLinkActive="active">
-					Sign in
-				</a>
-			</li>
 
-			<li class="nav-item">
-				<a class="nav-link"
-					routerLink="/register"
-					routerLinkActive="active">
-					Sign up
-				</a>
-			</li>
+			<button md-menu-item
+				routerLink="/login"
+				routerLinkActive="active"> Sign in
+			</button>
+			>
 
-		</ul>
+			<button md-menu-item
+				routerLink="/register"
+				routerLinkActive="active"> Sign up
+			</button>
+			>
+
+		</div>
 
 		<!-- Show this for logged in users -->
-		<ul *showAuthed="true"
+		<div *showAuthed="true"
 			class="nav navbar-nav pull-xs-right">
 
-			<li class="nav-item">
-				<a class="nav-link"
-					routerLink="/"
-					routerLinkActive="active"
-					[routerLinkActiveOptions]="{ exact: true }">
-					{{ 'HOME.MENU_HOME' }}
-				</a>
-			</li>
+			<button md-menu-item
+				routerLink="/"
+				routerLinkActive="active"
+				[routerLinkActiveOptions]="{ exact: true }"> Home
+			</button>
 
-			<li class="nav-item">
-				<a class="nav-link"
-					routerLink="/editor"
-					routerLinkActive="active">
-					<i class="ion-compose"></i>&nbsp;New Article
-				</a>
-			</li>
+			<button md-menu-item
+				routerLink="/editor"
+				routerLinkActive="active">
+				<i class="ion-compose"></i>&nbsp;New Article
+			</button>
 
-			<li class="nav-item">
-				<a class="nav-link"
-					routerLink="/settings"
-					routerLinkActive="active">
-					<i class="ion-gear-a"></i>&nbsp;Settings
-				</a>
-			</li>
+			<button md-menu-item
+				routerLink="/settings"
+				routerLinkActive="active">
+				<i class="ion-gear-a"></i>&nbsp;Settings
+			</button>
 
-			<li class="nav-item">
-				<a class="nav-link"
+			<button md-menu-item
 					[routerLink]="['/profile', currentUser.username]"
-					routerLinkActive="active">
-					<img [src]="currentUser.image" *ngIf="currentUser.image" class="user-pic"/>
-					{{ currentUser.username }}
-				</a>
-			</li>
+					routerLinkActive="active"> <img [src]="currentUser.image"
+					*ngIf="currentUser.image"
+					class="user-pic"/> {{ currentUser.username }}
+			</button>
 
-		</ul>
+		</div>
 
 		<!--<button md-menu-item (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>-->
 		<!--<button md-menu-item (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>-->
-		<button md-menu-item (click)="openDialog()">Settings</button>
+		<!--<button md-menu-item (click)="openDialog()">Settings</button>-->
 		<!--set app component variable-->
-		<button md-menu-item (click)="changeTheme()">Toggle theme</button>
-		<button md-menu-item>Help</button>
+		<!--<button md-menu-item (click)="changeTheme()">Toggle theme</button>-->
+		<!--<button md-menu-item>Help</button>-->
 	</md-menu>
 </div>

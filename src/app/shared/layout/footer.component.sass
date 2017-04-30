@@ -1,17 +1,18 @@
-footer
-  min-height: 100px
-  color: #fff
-  padding: 20px
-  margin-top: 20px
 
-  .toolbar
+.toolbar
 
-    .logo
-      background: url('../../../assets/images/logo 64x64.png')
-      width: 64px
-      height: 64px
-      float: left
+  .logo
+    margin: 20% 0 0 10%
+    background: url('../../../assets/images/logo40x40.png') no-repeat
+    width: 64px
+    height: 64px
+    float: left
+    @media (max-width: 769px)
+      display: none
 
-    a
-      text-decoration: dotted
-      color: blue
+  a
+    text-decoration: dotted
+
+.attribution
+  font-family: "Comic Sans MS"
+  font-size: 0.8em

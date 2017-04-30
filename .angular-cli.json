@@ -20,6 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.sass"
+
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
