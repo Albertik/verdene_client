@@ -29,19 +29,24 @@ export class PlayGameComponent implements OnInit {
             position: 'start',
             pieceTheme: 'assets/images/{piece}.png',
             showNotation: false,
-            moveSpeed: 'slow',
-            snapSpeed: 'slow',
+            moveSpeed: '50',
+            snapSpeed: '50',
             onDrop: function () {
                 if (arguments[0] == arguments[1]) return;
                 let legalMoves = self.draughts.getLegalMoves(arguments[0]);
                 let m = _.find(legalMoves, {from: parseInt(arguments[0], 10), to: parseInt(arguments[1], 10)});
+                if (!m) {
+                    setTimeout(function () {
+                        self.board.position(self.draughts.fen());
+                    }, 100);
+                    return
+                }
                 self.draughts.move(m);
                 if (m.takes.length > 0) {
                     _.forEach(m.takes, (take) => {
                         self.draughts.remove('' + take);
                     })
                 }
-                console.log(self.draughts.ascii());
 
                 let moves = self.draughts.moves();
                 if (moves.length === 0) {
