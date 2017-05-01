@@ -3,6 +3,10 @@ import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {Errors, UserService} from '../../shared';
+import {Http} from "@angular/http";
+import {WindowRef} from "../../common/windowRef";
+import { environment } from '../../../environments/environment';
+
 
 @Component({
     selector: 'auth-page',
@@ -15,10 +19,13 @@ export class AuthComponent implements OnInit {
     errors: Errors = new Errors();
     isSubmitting: boolean = false;
     authForm: FormGroup;
+    sessiodId: String = '';
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private userService: UserService,
+                private http: Http,
+                private winRef: WindowRef,
                 private fb: FormBuilder) {
         // use FormBuilder to create a form group
         this.authForm = this.fb.group({
@@ -28,6 +35,8 @@ export class AuthComponent implements OnInit {
     }
 
     ngOnInit() {
+
+
         this.route.url.subscribe(data => {
             // Get the last piece of the URL (it's either 'login' or 'register')
             this.authType = data[data.length - 1].path;
@@ -54,5 +63,9 @@ export class AuthComponent implements OnInit {
                     this.isSubmitting = false;
                 }
             );
+    }
+
+    loginWithFb() {
+        this.winRef.nativeWindow.location = `${environment.api_url}/auth/facebook`
     }
 }

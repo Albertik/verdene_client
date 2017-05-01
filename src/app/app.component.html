@@ -1,7 +1,11 @@
-<div  [class.dark-theme]="isDarkTheme" class="site">
-  <layout-header style="position: sticky; z-index: 1; top: 0" (onChangeTheme)="onChangeTheme($event)"></layout-header>
-  <div style="overflow: scroll" class="site__content">
-    <router-outlet></router-outlet>
+<div class="wrapper">
+  <div  [class.dark-theme]="isDarkTheme" class="site">
+    <div class="top-content">
+      <layout-header style="position: fixed; z-index: 1; top: 0; width: 100%" (onChangeTheme)="onChangeTheme($event)"></layout-header>
+    </div>
+    <div style="overflow-y: auto;padding-top:0" class="site__content">
+      <router-outlet></router-outlet>
+    </div>
+    <layout-footer style="z-index: 1"></layout-footer>
   </div>
-  <layout-footer></layout-footer>
 </div>

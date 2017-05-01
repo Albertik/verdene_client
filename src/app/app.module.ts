@@ -41,6 +41,7 @@ import {GalleryModule} from "./features/gallery/gallery.module";
 // import {TranslateModule} from "ng2-translate";
 import {AppState} from "./common/interfaces";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {WindowRef} from "./common/windowRef";
 
 const reducers = {
     APP_REDUCERS
@@ -112,7 +113,8 @@ export function appReducer(state: any = [], action: any) {
         JwtService,
         ProfilesService,
         TagsService,
-        UserService
+        UserService,
+        WindowRef
     ],
     bootstrap: [AppComponent]
 })

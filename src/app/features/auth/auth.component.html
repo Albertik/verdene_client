@@ -1,5 +1,5 @@
 <div class="auth-page">
-	<md-card class="auth-page__container">
+	<md-card class="auth-page__container" style="background: purple">
 		<md-card>
 			<div class="col-md-6 offset-md-3 col-xs-12">
 				<h1 class="text-xs-center">{{ title }}</h1>
@@ -42,9 +42,10 @@
 									type="password"/>
 							</md-input-container>
 						</fieldset>
-						<button class="btn btn-lg btn-primary pull-xs-right" type="submit">
+						<button md-button type="submit">
 							{{ title }}
 						</button>
+						<button type="button" (click)="loginWithFb()" md-button><i class="fa fa-facebook-official"></i> Login with facebook</button>
 					</fieldset>
 				</form>
 			</div>

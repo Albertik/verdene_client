@@ -16,7 +16,7 @@
 			<md-icon>more_vert</md-icon>
 		</button>
 	</md-toolbar>
-	<md-menu x-position="before" style="position: relative"
+	<md-menu x-position="after" y-position="below" style="position: absolute"
 		#menu="mdMenu">
 		<!-- Show this for logged out users -->
 		<div *showAuthed="false"
@@ -33,13 +33,11 @@
 				routerLink="/login"
 				routerLinkActive="active"> Sign in
 			</button>
-			>
 
 			<button md-menu-item
 				routerLink="/register"
 				routerLinkActive="active"> Sign up
 			</button>
-			>
 
 		</div>
 
