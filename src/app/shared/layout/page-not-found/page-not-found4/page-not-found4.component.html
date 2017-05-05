@@ -1,0 +1,88 @@
+<script>
+	var canvas,ctx,timer,isstart,count,oct,param,
+		x,y,r,ox,oy,tp,bt,lf,ri;
+	canvas = document.getElementsByTagName('canvas')[0];
+	ctx = canvas.getContext('2d');
+	canvas.width=canvas.height=400;
+	init(1);
+	aaa();
+	debugger
+
+	function init(fl){
+		var a,b,c,N;
+		oct=[];
+
+		N=4+(Math.random()*5)|0;
+		b=[];
+		for(a=0;a<6;a++){
+			b[a]=(Math.random()*N)|0;
+		}
+		if(fl){
+			b=[4,2,1,1,2,4];
+			N=7;
+		}
+
+		if(Math.random()<0.4){
+			for(a=0;a<3;a++){
+				b[5-a]=b[a];
+			}
+		}
+
+		param=[];
+		for(a=0;a<b.length;a++){
+			param[a]=Math.PI*2/N*b[a];
+		}
+
+		ctx.fillStyle="rgb(0,0,0)";
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		r=x=y=ox=oy=tp=bt=lf=ri=0;
+		p=[];
+		count=0;
+	}
+
+	function aaa(){
+		var a,b,c,max,bai,px,py;
+		ctx.globalCompositeOperation = "source-over";
+		ctx.fillStyle="rgb(0,0,0)";
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		ctx.globalCompositeOperation = "lighter";
+		ctx.strokeStyle="hsla("+((count*3)%360)+",50%,60%,0.5)";
+
+		max=100;
+		for(b=0;b<max;b++){
+			p.push([x,y]);
+			ox+=x;
+			oy+=y;
+			x+=Math.cos(r);
+			y+=Math.sin(r);
+			if(x<lf)lf=x;
+			if(x>ri)ri=x;
+			if(y<tp)tp=y;
+			if(y>bt)bt=y;
+			for(a=0;a<1000000;a++){
+				if(oct[a]===undefined)oct[a]=0;
+				if(oct[a]<param.length){
+					r+=param[oct[a]];
+					oct[a]++;
+					break;
+				}
+				oct[a]=0;
+			}
+		}
+
+		a=bt-tp;
+		b=ri-lf;
+		if(b>a)a=b;
+		bai=400/a;
+		px=ox/p.length;
+		py=oy/p.length;
+
+		ctx.beginPath();
+		for(a=0;a<p.length-1;a++)ctx.lineTo((p[a][0]-px)*bai+200,(p[a][1]-py)*bai+200);
+		ctx.stroke();
+		if(p.length>80000)init();
+		count++;
+		requestAnimationFrame(aaa);
+	}
+</script>
+<canvas onclick="init()"></canvas>

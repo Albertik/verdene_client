@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 import {Errors, UserService} from '../../shared';
 import {Http} from "@angular/http";
@@ -35,7 +35,13 @@ export class AuthComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.route.queryParams.subscribe((params: Params) => {
+            let user = params['user'];
+            if (user) {
+                this.userService.setAuth(JSON.parse(user))
+                this.router.navigateByUrl('/main')
+            }
+        });
 
         this.route.url.subscribe(data => {
             // Get the last piece of the URL (it's either 'login' or 'register')
