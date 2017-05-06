@@ -42,6 +42,7 @@ import {GalleryModule} from "./features/gallery/gallery.module";
 import {AppState} from "./common/interfaces";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {WindowRef} from "./common/windowRef";
+import {StoreLogMonitorModule} from "@ngrx/store-log-monitor";
 
 const reducers = {
     APP_REDUCERS
@@ -81,6 +82,7 @@ export function appReducer(state: any = [], action: any) {
             appReducer
         ),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
+        StoreLogMonitorModule,
 
         //internal modules
         DraughtGameModule,

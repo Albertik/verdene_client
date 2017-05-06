@@ -1,12 +1,15 @@
-<strong>Completed: {{todosModel.completedTodos}}/{{todosModel.totalTodos}}</strong>
+<strong style="display: block; padding: 10px">Completed: {{todosModel.completedTodos}}/{{todosModel.totalTodos}}</strong>
+<div *ngIf="todosModel.filteredTodos.length == 0">
+  There no todos for selected filter!
+</div>
 <ul>
   <li class="todos-list__todo" *ngFor="let todo of todosModel.filteredTodos">
     <strong [class.todos-list__todo--complete]="todo.complete">{{todo.description}}</strong>
-    <button md-button class="md-primary"
+    <button md-button color="primary"
             (click)="toggleTodo.emit(todo.id)">
       {{todo.complete ? 'Undo' : 'Complete'}}
     </button>
-    <button md-button class="md-warn"
+    <button md-button color="warn"
             (click)="removeTodo.emit(todo.id)">
       Remove
     </button>

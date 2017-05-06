@@ -6,7 +6,8 @@ import {ADD_TODO, REMOVE_TODO, TOGGLE_TODO, UNDO, REDO} from '../../common/actio
 
 @Component({
   selector: `todo-app`,
-  templateUrl: './todo-app.component.html'
+  templateUrl: './todo-app.component.html',
+  styleUrls: ['./todo-app.component.sass']
 })
 export class TodoAppComponent {
   public todosModel$ : Observable<TodoModel>;
@@ -15,21 +16,21 @@ export class TodoAppComponent {
   constructor(
     private _store : Store<AppState>
   ){
-    const todos$ = _store.select<Observable<Todo[]>>('todos');
+    const todos$ = _store.select('todos');
     const visibilityFilter$ = _store.select('visibilityFilter');
 
-    // this.todosModel$ = Observable
-    //   .combineLatest(
-    //     todos$,
-    //     visibilityFilter$,
-    //     ({present = []}, visibilityFilter : any) => {
-    //       return {
-    //         filteredTodos: present.filter(visibilityFilter),
-    //         totalTodos: present.length,
-    //         completedTodos: present.filter((todo : Todo) => todo.complete).length
-    //       }
-    //     }
-    //   );
+    this.todosModel$ = Observable
+      .combineLatest(
+        todos$,
+        visibilityFilter$,
+        ({present = []}, visibilityFilter : any) => {
+          return {
+            filteredTodos: present.filter(visibilityFilter),
+            totalTodos: present.length,
+            completedTodos: present.filter((todo : Todo) => todo.complete).length
+          }
+        }
+      );
   }
 
   addTodo(description : string){

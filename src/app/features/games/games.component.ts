@@ -16,20 +16,20 @@ export class GamesComponent {
   constructor(
     private _store: Store<AppState>
   ) {
-    const games$ = _store.select<Observable<Game[]>>('games');
+    const games$ = _store.select('games');
     const gamesFilter$ = _store.select('gamesFilter');
 
-    // this.gamesModel$ = Observable
-    //   .combineLatest(
-    //     games$,
-    //     gamesFilter$,
-    //     ({present = []}, gamesFilter: any) => {
-    //       return {
-    //         filteredGames: present.filter(gamesFilter),
-    //         totalGames: present.length
-    //       }
-    //     }
-    //   );
+    this.gamesModel$ = Observable
+      .combineLatest(
+        games$,
+        gamesFilter$,
+        ({present = []}, gamesFilter: any) => {
+          return {
+            filteredGames: present.filter(gamesFilter),
+            totalGames: present.length
+          }
+        }
+      );
   }
 
   //pass form

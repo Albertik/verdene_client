@@ -1,3 +1,4 @@
+///<reference path="../../../../../node_modules/@types/jasmine/index.d.ts"/>
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
