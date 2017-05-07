@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        { "glob": "**/*", "input": "../node_modules/jocly/dist/browser/", "output": "./node_modules/jocly/dist/browser/" }
+        { "glob": "**/*", "input": "../node_modules/jocly/dist/browser/", "output": "./assets/jocly/dist/browser/" }
       ],
       "index": "index.html",
       "main": "main.ts",
