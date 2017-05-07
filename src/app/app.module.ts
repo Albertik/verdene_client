@@ -44,6 +44,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {WindowRef} from "./common/windowRef";
 import {StoreLogMonitorModule} from "@ngrx/store-log-monitor";
 import {ContactsModule} from "./features/contacts/contacts.module";
+import {DocumentRef} from "./common/documentRef";
 
 const reducers = {
     APP_REDUCERS
@@ -118,7 +119,8 @@ export function appReducer(state: any = [], action: any) {
         ProfilesService,
         TagsService,
         UserService,
-        WindowRef
+        WindowRef,
+        DocumentRef
     ],
     bootstrap: [AppComponent]
 })

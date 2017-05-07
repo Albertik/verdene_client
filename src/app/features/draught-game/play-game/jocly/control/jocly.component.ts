@@ -9,8 +9,9 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 export class JoclyComponent implements OnInit {
     constructor() { }
 
+
     ngOnInit() {
-        require('./control.js');
+        require('./control.js')();
     }
 
 }

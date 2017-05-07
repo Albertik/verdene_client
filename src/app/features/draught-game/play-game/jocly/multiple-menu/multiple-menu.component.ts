@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 declare let $: any;
+var Jocly = require('jocly');
 
 @Component({
-    moduleId: module.id,
     selector: 'multiple-menu',
     templateUrl: './multiple-menu.component.html',
     styleUrls: ['./multiple-menu.component.css'],
@@ -13,10 +13,6 @@ export class MultipleMenuComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        let Jocly = require('jocly');
-        require('./multiple.js');
-        console.log('control');
-
         Jocly.listGames().then((games)=>{
 
             for(let gameName in games) {
