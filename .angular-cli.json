@@ -18,8 +18,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.sass"
-
+        "styles.sass",
+        "../node_modules/ng2-material/all.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

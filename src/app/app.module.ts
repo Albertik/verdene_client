@@ -43,6 +43,7 @@ import {AppState} from "./common/interfaces";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {WindowRef} from "./common/windowRef";
 import {StoreLogMonitorModule} from "@ngrx/store-log-monitor";
+import {ContactsModule} from "./features/contacts/contacts.module";
 
 const reducers = {
     APP_REDUCERS
@@ -98,6 +99,7 @@ export function appReducer(state: any = [], action: any) {
         EditorModule,
         ProfileModule,
         SettingsModule,
+        ContactsModule,
         AuthModule,
         BrowserAnimationsModule,
 

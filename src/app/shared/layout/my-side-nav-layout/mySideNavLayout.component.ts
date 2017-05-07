@@ -11,14 +11,10 @@ export class MySidenavLayoutComponent implements OnInit, AfterViewInit {
     public currentPhoto: Object = {};
     public opened = false;
     public links: Object[] = [
-        {
-            url: '/game',
-            text: 'Game'
-        },
-        {
-            url: '/games',
-            text: 'Games'
-        },
+        // {
+        //     url: '/game',
+        //     text: 'Game'
+        // },
         {
             url: '/multiple-menu',
             text: 'Play'
@@ -26,6 +22,10 @@ export class MySidenavLayoutComponent implements OnInit, AfterViewInit {
         {
             url: '/gallery',
             text: 'Gallery'
+        },
+        {
+            url: '/games',
+            text: 'Games'
         },
         {
             url: '/members',
