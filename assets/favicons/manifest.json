@@ -1,6 +1,5 @@
 {
  "name": "App",
- "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
@@ -38,6 +37,5 @@
    "type": "image\/png",
    "density": "4.0"
   }
-
  ]
 }
