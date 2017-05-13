@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {environment} from "../../../../../../environments/environment";
 
 declare let $: any;
 var Jocly = require('jocly');
@@ -36,7 +37,7 @@ export class MultipleMenuComponent implements OnInit {
             var area = $("<div>").addClass("game-area-mini");
             $("<div>").addClass("game-area-mini-cont").append(area).appendTo($("multiple-menu"));
 
-            window.location.href = '/jocly?game='+gameName;
+            window.location.href = environment.production ? 'jocly?game='+gameName : 'jocly?game='+gameName;
 
             function NotifyWinner(winner) {
                 var txt = "?";
