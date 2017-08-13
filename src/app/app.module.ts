@@ -42,9 +42,6 @@ import {GalleryModule} from "./features/gallery/gallery.module";
 import {AppState} from "./common/interfaces";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {WindowRef} from "./common/windowRef";
-import {StoreLogMonitorModule} from "@ngrx/store-log-monitor";
-import {ContactsModule} from "./features/contacts/contacts.module";
-import {DocumentRef} from "./common/documentRef";
 
 const reducers = {
     APP_REDUCERS
@@ -84,7 +81,6 @@ export function appReducer(state: any = [], action: any) {
             appReducer
         ),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
-        StoreLogMonitorModule,
 
         //internal modules
         DraughtGameModule,
@@ -100,7 +96,6 @@ export function appReducer(state: any = [], action: any) {
         EditorModule,
         ProfileModule,
         SettingsModule,
-        ContactsModule,
         AuthModule,
         BrowserAnimationsModule,
 
@@ -119,8 +114,7 @@ export function appReducer(state: any = [], action: any) {
         ProfilesService,
         TagsService,
         UserService,
-        WindowRef,
-        DocumentRef
+        WindowRef
     ],
     bootstrap: [AppComponent]
 })

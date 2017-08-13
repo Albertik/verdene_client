@@ -26,14 +26,13 @@ import {PageNotFound4Component} from "./layout/page-not-found/page-not-found4/pa
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg'
 
-
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
-        NgxDatatableModule,
+        // Ng2MaterialModule.forRoot(),
         RouterModule,
         MaterialModule,
         FlexLayoutModule,
@@ -73,7 +72,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg'
         ListErrorsComponent,
         RouterModule,
         MaterialModule,
-        NgxDatatableModule,
+        // Ng2MaterialModule,
         FlexLayoutModule,
         ShowAuthedDirective,
         MySidenavLayoutComponent,

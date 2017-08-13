@@ -83,10 +83,6 @@ export class UserService {
         return this.currentUserSubject.value;
     }
 
-    isCurrentUserIsAdmin(): boolean {
-        return this.currentUserSubject.value.isAdmin
-    }
-
     // Update the user on the server (email, pass, etc)
     update(user): Observable<User> {
         return this.apiService

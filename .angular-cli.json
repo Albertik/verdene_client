@@ -8,8 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        { "glob": "**/*", "input": "../node_modules/jocly/dist/browser/", "output": "./node_modules/jocly/dist/browser/" }
+        "assets"
       ],
       "index": "index.html",
       "main": "main.ts",

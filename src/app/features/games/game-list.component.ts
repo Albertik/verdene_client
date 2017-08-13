@@ -12,21 +12,33 @@ import {GameModel} from "../../common/interfaces";
 //   totalItems: number
 // }
 
-export class GameListComponent {
+export class GameListComponent implements AfterViewInit{
   @Input() gamesModel : GameModel[];
 
-  columns = [
-    { prop: 'playersNames.firstPlayer', name: 'Player 1', flexGrow: 1 },
-    { prop: 'playersNames.secondPlayer', name: 'Player 2', flexGrow: 1 },
-    { prop: 'pdnNotation', name: 'Notation', flexGrow: 3}
-  ];
-
-  messages = {
-    // Message to show when array is presented
-    // but contains no values
-    emptyMessage: 'You have no games..',
-
-    // Footer total message
-    totalMessage: 'total'
+  // public pagination: Pagination;
+  // availableLength: Array<number> = [5, 10, 20];
+  // pagedGames: Array<any> = [];
+  // constructor() {}
+  //
+  ngAfterViewInit() {
+    // this.pagination = {
+    //   currentPage: 1,
+    //   itemsPerPage: 5,
+    //   totalItems: this.gamesModel.length
+    // };
+    // this.refreshMaterials();
   }
+  //
+  // refreshMaterials() {
+  //   let start = (this.pagination.currentPage - 1) * this.pagination.itemsPerPage,
+  //     end = start + this.pagination.itemsPerPage;
+  //   this.pagedGames = this.gamesModel.slice(start, end);
+  // }
+  // detectChange(event) {
+  //   if (event !== undefined && event.name === 'pagination_changed' && event.pagination !== undefined) {
+  //     this.pagination = event.pagination;
+  //     this.refreshMaterials();
+  //   }
+  // }
+
 }
