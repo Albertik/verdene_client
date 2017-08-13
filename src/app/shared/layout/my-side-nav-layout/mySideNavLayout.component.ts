@@ -1,7 +1,6 @@
 import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {MdSidenav} from "@angular/material";
 import {SidenavService} from "../../services/sidenav.service";
-import {UserService} from "../../services/user.service";
 
 @Component({
     selector: 'my-side-nav-layout',
@@ -12,20 +11,24 @@ export class MySidenavLayoutComponent implements OnInit, AfterViewInit {
     public opened = false;
     public links: Object[] = [
         // {
-        //     url: '/game',
-        //     text: 'Game'
+        //     url: '/todos',
+        //     text: 'Todo\'s'
         // },
         {
-            url: '/multiple-menu',
+            url: '/game',
+            text: 'Game'
+        },
+        // {
+        //     url: '/games',
+        //     text: 'Games'
+        // },
+        {
+            url: '/play',
             text: 'Play'
         },
         {
             url: '/gallery',
             text: 'Gallery'
-        },
-        {
-            url: '/games',
-            text: 'Games'
         },
         {
             url: '/members',
@@ -45,19 +48,10 @@ export class MySidenavLayoutComponent implements OnInit, AfterViewInit {
     @ViewChild('sidenav') sidenav: MdSidenav;
     @ViewChild('leftSidenav') leftSidenav: MdSidenav;
 
-    constructor(
-        public sidenavService: SidenavService,
-        private userService: UserService
-    ) {
+    constructor(public sidenavService: SidenavService) {
     }
 
     ngOnInit() {
-        if (this.userService.isCurrentUserIsAdmin()) {
-            this.links.push({
-                url: '/todo',
-                text: 'TODO\'s'
-            })
-        }
     }
 
     ngAfterViewInit(): void {

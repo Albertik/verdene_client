@@ -31,8 +31,9 @@ export class BoardComponent implements AfterViewInit {
 
     //TODO found out how to redraw when input changes
     ngAfterViewInit() {
-        console.log($(this.el.nativeElement)
-            .dreader());
+
+        $(this.el.nativeElement)
+            .dreader();
 
         this.nextButton = $('.next');
         this.prevButton = $('.prev');

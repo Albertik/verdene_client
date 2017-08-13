@@ -13,7 +13,7 @@
 			</md-input-container>
 			<small
 				[hidden]="form.controls.playersNames.controls.firstPlayer.valid || (form.controls.playersNames.controls.firstPlayer.pristine && !submitted)">
-				Name is required (minimum 3 characters).
+				Name is required (minimum 5 characters).
 			</small>
 		</div>
 		<div>
@@ -28,20 +28,16 @@
 			</md-input-container>
 			<small
 				[hidden]="form.controls.playersNames.controls.secondPlayer.valid || (form.controls.playersNames.controls.secondPlayer.pristine && !submitted)">
-				Name is required (minimum 3 characters).
+				Name is required (minimum 5 characters).
 			</small>
 		</div>
 	</div>
 
-	<small
-		[hidden]="form.controls.pdnNotation.valid || (form.controls.pdnNotation.pristine && !submitted)">
-		Pdn text is required (minimum 30 characters).
-	</small>
-	<md-input-container style="display: block">
-		<textarea rows="3" style="width: 100%" mdInput placeholder="Your game pdn notation" formControlName="pdnNotation"></textarea>
+	<md-input-container>
+		<textarea mdInput placeholder="Textarea with autosize" formControlName="pdnNotation"></textarea>
 	</md-input-container>
 
-	<button md-raised-button color="primary"
+	<button md-button class="md-primary"
 		type="submit"
 		[disabled]="!form.valid">Submit
 	</button>
