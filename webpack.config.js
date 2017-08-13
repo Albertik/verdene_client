@@ -201,7 +201,7 @@ module.exports = {
         }
       ],
       "globOptions": {
-        "cwd": "/Users/albertkovalevskij/verdene/client2/src",
+        "cwd": "/Users/albertkovalevskij/verdene/src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }
