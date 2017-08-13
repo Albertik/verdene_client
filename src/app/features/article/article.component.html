@@ -42,7 +42,7 @@
 			<md-card class="row article-content">
 				<div class="col-md-12">
 
-					<div class="article-content-markdown" [innerHTML]="article.body | markdown"></div>
+					<div class="article-content-markdown" [froalaView] [innerHTML]="article.body"></div>
 
 					<ul class="tag-list">
 						<li *ngFor="let tag of article.tagList"

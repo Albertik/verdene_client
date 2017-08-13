@@ -30,6 +30,7 @@
     "@ngrx/store-log-monitor": "^3.0.2",
     "@swimlane/ngx-datatable": "^9.1.0",
     "@types/core-js": "^0.9.41",
+    "angular-froala-wysiwyg": "^1.0.0",
     "core-js": "^2.4.1",
     "draughts": "0.0.1",
     "draughts-reader": "git+https://github.com/jlfy738/draughts-reader.git",

@@ -65,6 +65,7 @@ export class EditorComponent implements OnInit {
     this.updateArticle(this.articleForm.value);
 
     // post the changes
+    console.log(this.article)
     this.articlesService
     .save(this.article)
     .subscribe(

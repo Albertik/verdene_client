@@ -22,7 +22,10 @@ import {PageNotFound1Component} from "./layout/page-not-found/page-not-found1/pa
 import {PageNotFound2Component} from "./layout/page-not-found/page-not-found2/page-not-found2.component";
 import {PageNotFound3Component} from "./layout/page-not-found/page-not-found3/page-not-found3.component";
 import {PageNotFound4Component} from "./layout/page-not-found/page-not-found4/page-not-found4.component";
+
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg'
+
 
 @NgModule({
     imports: [
@@ -34,6 +37,8 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
         RouterModule,
         MaterialModule,
         FlexLayoutModule,
+        FroalaEditorModule,
+        FroalaViewModule
         // TranslateModule
     ],
     declarations: [
@@ -72,7 +77,9 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
         FlexLayoutModule,
         ShowAuthedDirective,
         MySidenavLayoutComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        FroalaEditorModule,
+        FroalaViewModule,
         // TranslateModule
     ],
     entryComponents: [
