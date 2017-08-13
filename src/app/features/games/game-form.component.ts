@@ -6,7 +6,6 @@ import {FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
 @Component({
   selector: 'game-form',
   templateUrl: './game-form.component.html',
-  styleUrls: ['./game-form.component.sass']
 })
 export class GameFormComponent implements OnInit{
   @Output() addGame : EventEmitter<Game> = new EventEmitter<Game>();
@@ -22,10 +21,10 @@ export class GameFormComponent implements OnInit{
   ngOnInit() {
     this.form = this._fb.group({
       playersNames: this._fb.group({
-        firstPlayer: ['', [<any>Validators.required, <any>Validators.minLength(3)]],
-        secondPlayer: ['', [<any>Validators.required, <any>Validators.minLength(3)]]
+        firstPlayer: ['test1', [<any>Validators.required, <any>Validators.minLength(3)]],
+        secondPlayer: ['test2', [<any>Validators.required, <any>Validators.minLength(3)]]
       }),
-      pdnNotation: ['', [<any>Validators.required, <any>Validators.minLength(30)]]
+      pdnNotation: ['some very long pdn notation here should go for 30 symbols hehehehehehe', [<any>Validators.required, <any>Validators.minLength(30)]]
     });
 
 
@@ -43,6 +42,8 @@ export class GameFormComponent implements OnInit{
   }
 
   add(model: Game, isValid: boolean){
+    console.log("model-based form submitted");
+    console.log(this.form);
 
     this.submitted = true; // set form submit to true
 

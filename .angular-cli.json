@@ -8,8 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        { "glob": "**/*", "input": "../node_modules/jocly/dist/browser/", "output": "./assets/jocly/dist/browser/" }
+        "assets"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,6 +19,7 @@
       "prefix": "app",
       "styles": [
         "styles.sass"
+
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

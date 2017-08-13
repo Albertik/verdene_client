@@ -20,15 +20,15 @@ export class GalleryComponent {
   currentPhoto = {};
 
   photos = [
-    {rows: 2, name: "1", description: "Pridėti aprašymą"},
-    {rows: 1, name: "2", description: "Pridėti aprašymą"},
-    {rows: 1, name: "3", description: "Pridėti aprašymą"},
-    {rows: 2, name: "4", description: "Pridėti aprašymą"},
-    {rows: 1, name: "5", description: "Pridėti aprašymą"},
-    {rows: 2, name: "6", description: "Pridėti aprašymą"},
-    {rows: 1, name: "7", description: "Pridėti aprašymą"},
-    {rows: 1, name: "8", description: "Pridėti aprašymą"},
-    {rows: 1, name: "9", description: "Pridėti aprašymą"},
+    {rows: 2, name: "1", description: "Jeremy", age: 5},
+    {rows: 1, name: "2", description: "David", age: 5},
+    {rows: 1, name: "3", description: "Alex", age: 8},
+    {rows: 2, name: "4", description: "Joey", age: '11 weeks'},
+    {rows: 1, name: "5", description: "Igor", age: 5},
+    {rows: 2, name: "6", description: "Kara", age: 3},
+    {rows: 1, name: "7", description: "Stephen", age: 8},
+    {rows: 1, name: "8", description: "Jules", age: 3},
+    {rows: 1, name: "9", description: "Kara", age: 3},
   ];
 
   //TODO show photo info in sidenav, send some event to my-side-nav-layout
