@@ -1,5 +1,5 @@
 <!--TODO transclude content into my my-side-nav-layout component-->
-<my-side-nav-layout>
+<my-side-nav-layout (sidenavToggle)="console.log('hello')">
 
   <md-grid-list cols="4" rowHeight="200px">
     <p>{{title}}</p>
@@ -7,8 +7,8 @@
       <img src="assets/images/{{photo.name}}.jpg" (click)="openPhotoInModal('assets/images/' + photo.name + '.jpg')"
            alt="photo of {{photo.name}}">
       <md-grid-tile-footer>
-        <h3 md-line>{{photo.name}}</h3>
-        <span md-line>Human: {{photo.human}}</span>
+        <h3 md-line>Pavadinimas: {{photo.name}}</h3>
+        <span md-line>{{photo.description}}</span>
         <button md-icon-button (click)="showPhoto(photo)">
           <md-icon>info</md-icon>
         </button>

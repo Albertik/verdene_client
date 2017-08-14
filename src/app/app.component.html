@@ -6,6 +6,6 @@
     <div style="overflow-y: auto;padding-top:0" class="site__content">
       <router-outlet></router-outlet>
     </div>
-    <layout-footer style="z-index: 1"></layout-footer>
+    <layout-footer *ngIf="showFooter" style="z-index: 1"></layout-footer>
   </div>
 </div>

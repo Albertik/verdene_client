@@ -11,7 +11,7 @@ import {MembersComponent} from "./members.component";
   ],
   imports: [
     SharedModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
 
     //routes
     routes

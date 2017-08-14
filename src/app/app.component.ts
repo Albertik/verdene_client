@@ -10,11 +10,16 @@ import {UserService} from './shared';
 export class AppComponent implements OnInit {
 
     isDarkTheme = false;
+    showFooter = true;
 
     constructor(private userService: UserService) {}
 
     ngOnInit() {
         this.userService.populate();
+        if (window.location.href.indexOf('/jocly') > -1) {
+            this.showFooter = false;
+        }
+
     }
 
     onChangeTheme() {

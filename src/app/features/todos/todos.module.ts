@@ -16,7 +16,7 @@ import {MaterialModule} from "@angular/material";
   ],
   imports: [
     SharedModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
 
     routes
   ],

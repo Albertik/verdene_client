@@ -42,13 +42,16 @@ import {GalleryModule} from "./features/gallery/gallery.module";
 import {AppState} from "./common/interfaces";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {WindowRef} from "./common/windowRef";
+import {StoreLogMonitorModule} from "@ngrx/store-log-monitor";
+import {ContactsModule} from "./features/contacts/contacts.module";
+import {DocumentRef} from "./common/documentRef";
 
 const reducers = {
     APP_REDUCERS
 };
 
 const developmentReducer: ActionReducer<AppState> = compose(
-    localStorageSync(['todos', 'games'], true),
+    localStorageSync({keys: ['todos', 'games'], rehydrate: true}),
     combineReducers
 )(APP_REDUCERS);
 const productionReducer: ActionReducer<AppState> = combineReducers(reducers);
@@ -81,6 +84,7 @@ export function appReducer(state: any = [], action: any) {
             appReducer
         ),
         StoreDevtoolsModule.instrumentOnlyWithExtension(),
+        StoreLogMonitorModule,
 
         //internal modules
         DraughtGameModule,
@@ -96,6 +100,7 @@ export function appReducer(state: any = [], action: any) {
         EditorModule,
         ProfileModule,
         SettingsModule,
+        ContactsModule,
         AuthModule,
         BrowserAnimationsModule,
 
@@ -114,7 +119,8 @@ export function appReducer(state: any = [], action: any) {
         ProfilesService,
         TagsService,
         UserService,
-        WindowRef
+        WindowRef,
+        DocumentRef
     ],
     bootstrap: [AppComponent]
 })

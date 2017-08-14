@@ -1,66 +1,76 @@
-import {Component, ViewContainerRef} from '@angular/core';
-import {MdDialogRef, MdDialog, MdDialogConfig} from "@angular/material";
+import {Component, ViewContainerRef, EventEmitter, Output} from '@angular/core';
+import {MdDialogRef, MdDialog, MdDialogConfig, MdSidenav} from "@angular/material";
+import {SidenavService} from "../../shared/services/sidenav.service";
 
 @Component({
-  selector: 'gallery',
-  templateUrl: './gallery.component.html',
+    selector: 'gallery',
+    templateUrl: './gallery.component.html',
 })
 export class GalleryComponent {
-  //
-  // @ViewChild('sidenav') sidenav: MdSidenav;
-  // @ViewChild('leftSidenav') leftSidenav: MdSidenav;
 
-  dialogRef: MdDialogRef<PhotoDialog>;
+    dialogRef: MdDialogRef<PhotoDialog>;
+    isOpenedSidenav: boolean = false;
 
-  constructor(public dialog: MdDialog,
-              public viewContainerRef: ViewContainerRef) {
-  }
+    constructor(public dialog: MdDialog,
+                public viewContainerRef: ViewContainerRef,
+                public sidenavService: SidenavService) {
+    }
 
 
-  currentPhoto = {};
+    currentPhoto = {};
 
-  photos = [
-    {rows: 2, name: "1", description: "Jeremy", age: 5},
-    {rows: 1, name: "2", description: "David", age: 5},
-    {rows: 1, name: "3", description: "Alex", age: 8},
-    {rows: 2, name: "4", description: "Joey", age: '11 weeks'},
-    {rows: 1, name: "5", description: "Igor", age: 5},
-    {rows: 2, name: "6", description: "Kara", age: 3},
-    {rows: 1, name: "7", description: "Stephen", age: 8},
-    {rows: 1, name: "8", description: "Jules", age: 3},
-    {rows: 1, name: "9", description: "Kara", age: 3},
-  ];
+    photos = [
+        {rows: 2, name: "1", description: "Pridėti aprašymą"},
+        {rows: 1, name: "2", description: "Pridėti aprašymą"},
+        {rows: 1, name: "3", description: "Pridėti aprašymą"},
+        {rows: 2, name: "4", description: "Pridėti aprašymą"},
+        {rows: 1, name: "5", description: "Pridėti aprašymą"},
+        {rows: 2, name: "6", description: "Pridėti aprašymą"},
+        {rows: 1, name: "7", description: "Pridėti aprašymą"},
+        {rows: 1, name: "8", description: "Pridėti aprašymą"},
+        {rows: 1, name: "9", description: "Pridėti aprašymą"},
+    ];
 
-  //TODO show photo info in sidenav, send some event to my-side-nav-layout
-  showPhoto(photo) {
-    this.currentPhoto = photo;
-    // this.sidenav.open();
-  }
+    //TODO show photo info in sidenav, send some event to my-side-nav-layout
+    showPhoto(photo) {
+        this.currentPhoto = photo;
 
-  openPhotoInModal(imageUrl) {
-    let config = new MdDialogConfig();
-    config.viewContainerRef = this.viewContainerRef;
-    this.dialogRef = this.dialog.open(PhotoDialog, config);
-    this.dialogRef.componentInstance.imageUrl = imageUrl;
+        this.isOpenedSidenav = !this.isOpenedSidenav;
+        this.sidenavService.openRightSidenav(this.isOpenedSidenav);
+        this.sidenavService.rightOpened$.subscribe((opened) => {
+            this.isOpenedSidenav = opened;
+        });
+    }
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ' + result);
-      this.dialogRef = null;
-    });
-  }
+    openPhotoInModal(imageUrl) {
+        let config = new MdDialogConfig();
+        config.viewContainerRef = this.viewContainerRef;
+        this.dialogRef = this.dialog.open(PhotoDialog, config);
+        this.dialogRef.componentInstance.imageUrl = imageUrl;
+
+        this.dialogRef.afterClosed().subscribe(result => {
+            console.log('result: ' + result);
+            this.dialogRef = null;
+        });
+    }
 }
 
 @Component({
-  selector: 'photo-dialog',
-  template: `
-  <img [src]="imageUrl" alt="">
-  <button type="button" (click)="dialogRef.close('yes')">Yes</button>
-  <button type="button" (click)="dialogRef.close('no')">No</button>
-  `
+    selector: 'photo-dialog',
+    template: `
+			<img [src]="imageUrl"
+				alt="">
+			<button type="button"
+				(click)="dialogRef.close('yes')">Yes
+			</button>
+			<button type="button"
+				(click)="dialogRef.close('no')">No
+			</button>
+    `
 })
 export class PhotoDialog {
-  public imageUrl: string;
+    public imageUrl: string;
 
-  constructor(public dialogRef: MdDialogRef<PhotoDialog>) {
-  }
+    constructor(public dialogRef: MdDialogRef<PhotoDialog>) {
+    }
 }

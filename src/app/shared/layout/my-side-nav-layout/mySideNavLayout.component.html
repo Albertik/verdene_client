@@ -1,8 +1,8 @@
-<md-sidenav-container>
-	<md-sidenav #leftSidenav (open)="mybutton.focus()" [opened]="opened" mode="side" layout-padding>
-		<span style="float: right"><button class="md-primary" #mybutton (click)="closeLeftSidenav()">X</button></span>
-		<h2>Menu.</h2>
-		<br>
+<md-sidenav-container style="height: 100vh">
+	<md-sidenav #leftSidenav [opened]="opened" mode="side" layout-padding>
+		<!--<span style="float: right"><button class="md-primary" #mybutton (click)="closeLeftSidenav()">X</button></span>-->
+		<!--<h2>Menu.</h2>-->
+		<!--<br>-->
 
 		<md-list>
             <md-list-item *ngFor="let link of links">
@@ -31,6 +31,6 @@
 		</md-tab-group>
 	</md-sidenav>
 
-	<ng-content></ng-content>
+	<ng-content (sidenavToggle)="console.log('hello')"></ng-content>
 
 </md-sidenav-container>

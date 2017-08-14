@@ -32,8 +32,8 @@ export class HeaderComponent implements OnInit {
 
     toggleLeftSidenav() {
         this.isOpenedSidenav = !this.isOpenedSidenav;
-        this.sidenavService.openSidenav(this.isOpenedSidenav);
-        this.sidenavService.opened$.subscribe((opened) => {
+        this.sidenavService.openLeftSidenav(this.isOpenedSidenav);
+        this.sidenavService.leftOpened$.subscribe((opened) => {
             this.isOpenedSidenav = opened;
         });
     }

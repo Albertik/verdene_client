@@ -11,7 +11,7 @@ import {routes} from "./contacts.route";
     ],
     imports: [
         SharedModule,
-        MaterialModule.forRoot(),
+        MaterialModule,
 
         //routes
         routes

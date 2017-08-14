@@ -3,11 +3,17 @@ import {Subject} from "rxjs";
 
 @Injectable()
 export class SidenavService {
-  private openSource = new Subject<boolean>();
+  private leftOpenSource = new Subject<boolean>();
+  private rightOpenSource = new Subject<boolean>();
 
-  public opened$ = this.openSource.asObservable();
+  public leftOpened$ = this.leftOpenSource.asObservable();
+  public rightOpened$ = this.rightOpenSource.asObservable();
 
-  openSidenav(isOpened: boolean) {
-    this.openSource.next(isOpened);
+  openLeftSidenav(isOpened: boolean) {
+    this.leftOpenSource.next(isOpened);
+  }
+
+  openRightSidenav(isOpened: boolean) {
+    this.rightOpenSource.next(isOpened);
   }
 }

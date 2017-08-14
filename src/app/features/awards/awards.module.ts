@@ -11,7 +11,7 @@ import {AwardsComponent} from "./awards.component";
   ],
   imports: [
     SharedModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
 
     //routes
     routes

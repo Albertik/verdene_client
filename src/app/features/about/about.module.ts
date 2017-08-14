@@ -11,7 +11,7 @@ import {AboutComponent} from "./about.component";
   ],
   imports: [
     SharedModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
 
     //routes
     routes

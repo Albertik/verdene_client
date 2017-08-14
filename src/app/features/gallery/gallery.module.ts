@@ -11,7 +11,7 @@ import {routes} from "./gallery.routes";
     PhotoDialog,
   ],
   imports: [
-    MaterialModule.forRoot(),
+    MaterialModule,
     SharedModule,
 
     //routes
